@@ -5,7 +5,13 @@ var game;
 var gameState = 0;
 var playerCount = 0;
 
+var redCastle, blueCastle; 
+
+var bridge, backgroundPlay;
+
 var redCastleIMG, blueCastleIMG;
+var bridgeIMG, backgroundIMG;
+
 var kingdomImage;
 
 var database;
@@ -15,6 +21,9 @@ function preload (){
 
   redCastleIMG = loadImage("Red Castle.jpg")
   blueCastleIMG = loadImage("Blue Castle.jpg")
+
+  bridgeIMG = loadImage("bridge.png")
+  backgroundIMG = loadImage("background for play.jpg")
 
 }
 
@@ -31,7 +40,13 @@ function setup() {
 function draw() {
   background(kingdomImage);  
 
-  
-  form.display();
+  if(playerCount === 2){
+    game.update(1);
+  }
+
+  if(gameState === 1){
+    clear();
+    game.play();
+  }
   
 }
