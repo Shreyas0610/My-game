@@ -28,13 +28,21 @@ class Game {
       form = new Form()
       form.display();
     }
-    redCastle = createSprite(displayWidth-200,displayHeight/2);
-    blueCastle = createSprite(200,displayHeight/2);
+    redCastle = createSprite(displayWidth - 200, displayHeight / 2);
+    blueCastle = createSprite(200, displayHeight / 2);
 
-    bridge = createSprite(displayWidth-500,displayHeight/2)
-    
+    blueTroops = createSprite(500, displayHeight - 485);
+    redTroops = createSprite(displayWidth - 500, displayHeight - 485);
+
+    blueTroops.addImage(blueTroopsIMG);
+    redTroops.addImage(redTroopsIMG);
+
+    blueTroops.scale = 0.2;
+    redTroops.scale = 0.2;
+
+    bridge = createSprite(displayWidth / 2, displayHeight - 400);
     bridge.addImage(bridgeIMG);
-    
+
     redCastle.scale = 0.5;
     blueCastle.scale = 0.5;
 
@@ -42,14 +50,31 @@ class Game {
     blueCastle.addImage(blueCastleIMG);
   }
 
-  play(){
+  play() {
     form.hide();
 
     background(backgroundIMG);
 
     Player.getPlayerInfo();
-    
+
+    if(keyDown("d")){
+      blueTroops.x = blueTroops.x + 3;  
+    };
+
+    if(keyDown("a")){
+      blueTroops.x = blueTroops.x - 3;  
+    };
+
+    if(keyDown(RIGHT_ARROW)){
+      redTroops.x = redTroops.x + 3;  
+    };
+
+    if(keyDown(LEFT_ARROW)){
+      redTroops.x = redTroops.x - 3;  
+    };
+
+
     drawSprites();
-     
+
   }
 }

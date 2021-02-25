@@ -5,6 +5,10 @@ var game;
 var gameState = 0;
 var playerCount = 0;
 
+var blueTroops, redTroops;
+
+var blueTroopsIMG, redTroopsIMG;
+
 var redCastle, blueCastle; 
 
 var bridge, backgroundPlay;
@@ -16,6 +20,8 @@ var kingdomImage;
 
 var database;
 
+var allPlayers;
+
 function preload (){
   kingdomImage = loadImage("defendkingdomhome.jpg");
 
@@ -25,10 +31,14 @@ function preload (){
   bridgeIMG = loadImage("bridge.png")
   backgroundIMG = loadImage("background for play.jpg")
 
+  redTroopsIMG = loadImage("left shooter.jpg");
+  blueTroopsIMG = loadImage("rightshooter.jpg");
+
+
 }
 
 function setup() {
-  createCanvas(displayWidth,displayHeight);
+  createCanvas(displayWidth-50,displayHeight-50);
 
   database = firebase.database();
 
