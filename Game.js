@@ -48,6 +48,8 @@ class Game {
 
     redCastle.addImage(redCastleIMG);
     blueCastle.addImage(blueCastleIMG);
+
+    
   }
 
   play() {
@@ -56,6 +58,11 @@ class Game {
     background(backgroundIMG);
 
     Player.getPlayerInfo();
+
+    bullet1 = createSprite(blueTroops.x,blueTroops.y);
+    bullet1.addImage(bulletIMG1);
+    bullet1.visible = false;
+    bullet1.scale = 0.15;
 
     if(keyDown("d")){
       blueTroops.x = blueTroops.x + 3;  
@@ -73,6 +80,24 @@ class Game {
       redTroops.x = redTroops.x - 3;  
     };
 
+    if(keyDown("e")){
+
+      bullet1.velocity.x = 5;
+      bullet1.visible = true;
+    }
+
+    bullet1.setCollider("circle",0,0,150);
+    redTroops.setCollider("circle",0,0,150);
+
+    if(bullet1.isTouching(redTroops)){
+      redTroops.visible = false;
+      console.log("HI");
+    }
+
+
+    redTroops.debug = true; 
+    bullet1.debug = true;
+    
 
     drawSprites();
 

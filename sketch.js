@@ -9,6 +9,9 @@ var blueTroops, redTroops;
 
 var blueTroopsIMG, redTroopsIMG;
 
+var bullet1, bullet2;
+var bulletIMG1, bulletIMG2;
+
 var redCastle, blueCastle; 
 
 var bridge, backgroundPlay;
@@ -34,6 +37,8 @@ function preload (){
   redTroopsIMG = loadImage("left shooter.jpg");
   blueTroopsIMG = loadImage("rightshooter.jpg");
 
+  bulletIMG1 = loadImage("Bullet-Shooting-512.jpg");
+  bulletIMG2 = loadImage("Bullet-Shooting-flipped.jpg");
 
 }
 
